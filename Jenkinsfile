@@ -16,11 +16,12 @@ pipeline {
 
         }
 
-        stage('Manual Check') {
+        stage('Terraform aproval') {
             steps {
-                input message: 'Apply this Terraform ', ok: 'yes'
+                input message: 'Apply this to terraform?', ok: 'yes'
             }
 
+        }
         stage('Terraform apply') {
             steps {
                 sh 'terraform apply --auto-approve'
